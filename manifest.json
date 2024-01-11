@@ -11,8 +11,8 @@
     {
       "id": "nyanga_keyword",
       "type": "keyword",
-      "name": "Nyanga Read keyword",
-      "description": "",
+      "name": "Nyanga Read",
+      "description": "hello there 😺",
       "default_value": "nyr"
     }
   ]
