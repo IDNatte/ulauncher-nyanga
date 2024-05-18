@@ -1,0 +1,26 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "Nyanga ulauncher",
+  "description": "Nyanga-Read manga reader extension",
+  "developer_name": "IDNatte",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "nyanga_keyword_search",
+      "type": "keyword",
+      "name": "Nyanga Read",
+      "description": "search and read some manga 😺",
+      "default_value": "nyr"
+    },
+    {
+      "id": "nyanga_bin_path",
+      "type": "input",
+      "name": "Nyanga Read binary path",
+      "description": "Nyanga Read binary path",
+      "default_value": "/home/piinjay/Project/deploy/nyanga-bin"
+    }
+  ]
+}
