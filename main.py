@@ -46,6 +46,7 @@ class ItemEnterEventListener(EventListener):
             )
 
         if data.get("open_bookmarked"):
+            # logger.info(f"\n\nopening bookmark page\n\n")
             command.extend(["--extension", "--context", "my_manga"])
 
         process = subprocess.Popen(command)
@@ -83,7 +84,7 @@ class KeywordQueryEventListener(EventListener):
             )
         ]
 
-        logger.info(f"\n\n{event.get_keyword()}\n\n")
+        # logger.info(f"\n\n{event.get_keyword()}\n\n")
 
         if event.get_keyword() == extension.preferences.get("nyanga_keyword_search"):
 
