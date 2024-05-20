@@ -13,7 +13,7 @@
       "type": "keyword",
       "name": "Nyanga Read",
       "description": "search and read some manga 😺",
-      "default_value": "nyr"
+      "default_value": "nyrd"
     },
     {
       "id": "nyanga_bin_path",
