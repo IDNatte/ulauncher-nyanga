@@ -122,7 +122,7 @@ from src.thumb_dl import download_image
 logger = logging.getLogger(__name__)
 
 
-class DemoExtension(Extension):
+class NyangaExtension(Extension):
     def __init__(self):
         super().__init__()
         self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
@@ -240,4 +240,4 @@ class KeywordQueryEventListener(EventListener):
 
 
 if __name__ == "__main__":
-    DemoExtension().run()
+    NyangaExtension().run()
