@@ -11,9 +11,16 @@
     {
       "id": "nyanga_keyword_search",
       "type": "keyword",
-      "name": "Nyanga Read",
+      "name": "Nyanga Read search manga",
       "description": "search and read some manga 😺",
       "default_value": "nyr"
+    },
+    {
+      "id": "nyanga_keyword_bookmark",
+      "type": "keyword",
+      "name": "Nyanga Read open bookmarked manga list",
+      "description": "open mangalist that you have been bookmarked in nyanga-read 😺",
+      "default_value": "nyb"
     },
     {
       "id": "nyanga_bin_path",
