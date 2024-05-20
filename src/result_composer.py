@@ -31,7 +31,7 @@ def composer(data, init_data, extension):
                             ),
                             "mangaid": x.get("id"),
                             "manga_name": x.get("attributes").get("title").get("en"),
-                            "open_bookmarked": None,
+                            "open_bookmarked": False,
                         },
                         keep_app_open=True,
                     ),

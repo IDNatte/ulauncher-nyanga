@@ -27,12 +27,17 @@ class NyangaExtension(Extension):
 
 class ItemEnterEventListener(EventListener):
     def on_event(self, event, extension):
-        # logger.info(f"\n\n{event.get_data()}\n\n")
         data = event.get_data()
         command = [data.get("nyr_bin")]
 
         if data.get("open_app"):
             subprocess.run([data.get("nyr_bin")])
+
+        if data.get("open_bookmarked"):
+            subprocess.run(
+                [data.get("nyr_bin"), "--extension", "--context", "my_manga"]
+            )
+            # command.extend(["--extension", "--context", "my_manga"])
 
         if not data.get("open_app"):
             command.extend(
@@ -44,10 +49,6 @@ class ItemEnterEventListener(EventListener):
                     data.get("mangaid"),
                 ]
             )
-
-        if data.get("open_bookmarked"):
-            # logger.info(f"\n\nopening bookmark page\n\n")
-            command.extend(["--extension", "--context", "my_manga"])
 
         process = subprocess.Popen(command)
         process.wait()
@@ -65,26 +66,7 @@ class ItemEnterEventListener(EventListener):
 
 class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
-        # create_temp()
-        data = [
-            ExtensionResultItem(
-                icon="images/icon.png",
-                name="Open Nyanga Read",
-                description="Open Nyanga-Read Application",
-                on_enter=ExtensionCustomAction(
-                    {
-                        "open_app": True,
-                        "nyr_bin": extension.preferences["nyanga_bin_path"],
-                        "mangaid": None,
-                        "manga_name": None,
-                        "open_bookmarked": None,
-                    },
-                    keep_app_open=True,
-                ),
-            )
-        ]
-
-        # logger.info(f"\n\n{event.get_keyword()}\n\n")
+        data = []
 
         if event.get_keyword() == extension.preferences.get("nyanga_keyword_search"):
 
@@ -148,7 +130,7 @@ class KeywordQueryEventListener(EventListener):
                 ExtensionResultItem(
                     icon="images/icon.png",
                     name="Open bookmarked manga",
-                    description="Open Nyanga-Read Application",
+                    description="Open bookmarked manga in nyanga-read",
                     on_enter=ExtensionCustomAction(
                         {
                             "open_app": False,
@@ -160,6 +142,25 @@ class KeywordQueryEventListener(EventListener):
                         keep_app_open=True,
                     ),
                 ),
+            )
+
+        else:
+            data.append(
+                ExtensionResultItem(
+                    icon="images/icon.png",
+                    name="Open Nyanga Read",
+                    description="Open Nyanga-Read Application",
+                    on_enter=ExtensionCustomAction(
+                        {
+                            "open_app": True,
+                            "nyr_bin": extension.preferences["nyanga_bin_path"],
+                            "mangaid": None,
+                            "manga_name": None,
+                            "open_bookmarked": None,
+                        },
+                        keep_app_open=True,
+                    ),
+                )
             )
 
         return RenderResultListAction(data)
