@@ -213,14 +213,11 @@ class KeywordQueryEventListener(EventListener):
             stdout_thread.start()
             stderr_thread.start()
 
-            # Wait for the process to complete
             process.wait()
 
-            # Ensure threads have finished
             stdout_thread.join()
             stderr_thread.join()
 
-            # Collect all output
             stdout_lines = []
             stderr_lines = []
 
