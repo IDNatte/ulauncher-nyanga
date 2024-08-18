@@ -2,7 +2,7 @@
 
 how to use it ?
 
-- make sure you already downloading nyanga-read binary, download it from [here](https://github.com/IDNatte/Nyanga-Read/releases),
+- make sure you already downloading nyanga-read binary, download it from [here](https://gitlab.com/IDNatte/Nyanga-Read/-/releases),
 
 - put it somewhere in your system, make sure you done `chmod +x /Nyanga-Read-bin`, and copy paste the path
 
